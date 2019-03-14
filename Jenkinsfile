@@ -1,20 +1,35 @@
 pipeline {
     agent any
-    stages {
-        stage('compiling pipeline'){
-          steps{
-		    echo 'Compiling Jenkins Pipeline concept'
-               }
+  stages {
+        stage('Run Tests') {
+            parallel {
+                stage('Test On Windows') {
+                    agent {
+                        label "windows"
+                    }
+                    steps {
+                    	echo "Executing Windows BAt file"
+                    }
+                    post {
+                        always {
+                           echo "This test was for Windows"
+                        }
+                    }
+                }
+                stage('Test On Linux') {
+                    agent {
+                        label "linux"
+                    }
+                    steps {
+                    	echo "Executing Windows Shell file"
+                    }
+                    post {
+                        always {
+                           echo "This test was for Linux"
+                        }
+                    }
+                }
+            }
         }
-		stage('testing pipeline'){
-          steps{
-		    echo 'Testing Jenkins Pipeline concept'
-               }
-        }
-        stage('deploying pipeline'){
-          steps{
-		    echo 'Deploying Jenkins Pipeline concept'
-               }
-        }
-}
+    }
 }
