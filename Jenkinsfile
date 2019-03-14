@@ -1,12 +1,20 @@
 pipeline {
     agent any
     stages {
-
-        stage('testing pipeline'){
+        stage('compiling pipeline'){
           steps{
-		    echo 'Welcome to the World of Jenkins Pipeline'
-                }
+		    echo 'Compiling Jenkins Pipeline concept'
+               }
         }
-
+		stage('testing pipeline'){
+          steps{
+		    echo 'Testing Jenkins Pipeline concept'
+               }
+        }
+        stage('deploying pipeline'){
+          steps{
+		    echo 'Deploying Jenkins Pipeline concept'
+               }
+        }
 }
 }
