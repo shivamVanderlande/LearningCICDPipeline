@@ -4,9 +4,6 @@ pipeline {
         stage('Run Tests') {
             parallel {
                 stage('Test On Windows') {
-                    agent {
-                        label "windows"
-                    }
                     steps {
                     	echo "Executing Windows BAt file"
                     }
@@ -17,9 +14,6 @@ pipeline {
                     }
                 }
                 stage('Test On Linux') {
-                    agent {
-                        label "linux"
-                    }
                     steps {
                     	echo "Executing Windows Shell file"
                     }
