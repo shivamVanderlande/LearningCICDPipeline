@@ -2,7 +2,6 @@ pipeline {
     agent any
   stages {
         stage('Run Tests') {
-            parallel {
                 stage('Test On Windows') {
                     steps {
                     	echo "Executing Windows BAt file"
@@ -23,7 +22,6 @@ pipeline {
                         }
                     }
                 }
-            }
         }
     }
 }
